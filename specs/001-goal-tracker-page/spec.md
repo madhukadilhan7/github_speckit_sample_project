@@ -5,6 +5,13 @@
 **Status**: Draft  
 **Input**: User description: "initial page setup - this application should be goal tracking web app called 'doit'. There should be two columns - a left one where current goals are shown, along with how many days left the user has to achieve the goal, and a right one where completed goals are. Each goal can be 'checked' using a check box, and then either moved to the completed column or permanently deleted. To add new goals, a user can click on a button to open a new goal form in a modal (Title and end date fields). Goals reaching their end date (within 3 days) are highlighted. Lets use a modern light theme with fun pastel colours."
 
+## Clarifications
+
+### Session 2026-02-27
+
+- Q: How are goals sorted within each column? → A: Current goals by end date ascending (soonest deadline first); Completed goals by most recently completed first.
+- Q: Can a completed goal be unchecked to move it back to Current Goals? → A: No — completion is one-way. Completed goals display a static checkmark, not an interactive checkbox.
+
 ## User Scenarios *(mandatory)*
 
 ### User Story 1 — View Current & Completed Goals (Priority: P1)
@@ -111,7 +118,7 @@ Goals whose end date is within 3 days (including today) are visually highlighted
 - **FR-005**: Both fields MUST be validated before submission; appropriate inline error messages MUST appear if either is empty.
 - **FR-006**: On successful submission, the modal MUST close and the new goal MUST appear in the Current Goals column immediately (no page reload).
 - **FR-007**: The modal MUST close without creating a goal when the user clicks outside it or presses Escape.
-- **FR-008**: Each goal in the Current Goals column MUST have a checkbox. Checking it MUST move the goal to the Completed Goals column.
+- **FR-008**: Each goal in the Current Goals column MUST have a checkbox. Checking it MUST move the goal to the Completed Goals column. Completion is one-way and cannot be undone. In the Completed Goals column, goals MUST display a static checkmark (not an interactive checkbox).
 - **FR-009**: Each goal in both columns MUST have a delete action. Clicking it MUST show a confirmation prompt before permanently removing the goal.
 - **FR-010**: Active goals whose end date is within 3 calendar days (inclusive) of today MUST be visually highlighted with a warning colour.
 - **FR-011**: Active goals that are past their end date MUST be visually highlighted with a stronger warning colour and display a negative days count (e.g., "2 days overdue").
@@ -119,6 +126,7 @@ Goals whose end date is within 3 days (including today) are visually highlighted
 - **FR-013**: The layout MUST be responsive: two side-by-side columns on medium-and-above viewports, stacked vertically on small/mobile viewports.
 - **FR-014**: Goal data MUST persist across page refreshes within the same browser session (client-side storage is acceptable for this initial version).
 - **FR-015**: Empty columns MUST display a friendly empty-state message.
+- **FR-016**: Current Goals MUST be sorted by end date ascending (soonest deadline first). Completed Goals MUST be sorted by completion date descending (most recently completed first).
 
 ### Key Entities
 
