@@ -27,10 +27,10 @@
 
 **Purpose**: Project initialisation — types, utilities, theme tokens, and root layout
 
-- [ ] T001 Define Goal interface, Urgency type, and GoalStore interface in app/types/goal.ts
-- [ ] T002 [P] Implement daysRemaining, getUrgency, and formatDaysRemaining pure functions in app/lib/dates.ts
-- [ ] T003 [P] Add pastel colour @theme tokens (background, surface, primary, success, warning, danger, text, border) in app/globals.css
-- [ ] T004 Complete root layout with Geist font, HTML shell, and "DoIt" metadata in app/layout.tsx
+- [x] T001 Define Goal interface, Urgency type, and GoalStore interface in app/types/goal.ts
+- [x] T002 [P] Implement daysRemaining, getUrgency, and formatDaysRemaining pure functions in app/lib/dates.ts
+- [x] T003 [P] Add pastel colour @theme tokens (background, surface, primary, success, warning, danger, text, border) in app/globals.css
+- [x] T004 Complete root layout with Geist font, HTML shell, and "DoIt" metadata in app/layout.tsx
 
 ---
 
@@ -40,8 +40,8 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 Implement useGoals custom hook (useState + useEffect localStorage sync, addGoal, completeGoal, deleteGoal, storageAvailable, graceful degradation with try-catch) in app/hooks/useGoals.ts
-- [ ] T006 [P] Create EmptyState component (accepts message prop, pastel styling) in app/components/EmptyState.tsx
+- [x] T005 Implement useGoals custom hook (useSyncExternalStore localStorage sync, addGoal, completeGoal, deleteGoal, storageAvailable, graceful degradation with try-catch) in app/hooks/useGoals.ts
+- [x] T006 [P] Create EmptyState component (accepts message prop, pastel styling) in app/components/EmptyState.tsx
 
 **Checkpoint**: Foundation ready — user story implementation can now begin
 
@@ -55,9 +55,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 [P] [US1] Create GoalCard component (title, days-remaining text via formatDaysRemaining, data-urgency attribute for future highlighting, checkbox placeholder for active / static checkmark for completed, delete button placeholder) in app/components/GoalCard.tsx
-- [ ] T008 [US1] Create GoalBoard client component ("use client", calls useGoals, renders two-column CSS Grid layout with md:grid-cols-2, column headings "Current Goals" / "Completed Goals", maps activeGoals and completedGoals to GoalCard, renders EmptyState when columns are empty) in app/components/GoalBoard.tsx
-- [ ] T009 [US1] Update page.tsx to render page header with "DoIt" title and GoalBoard component in app/page.tsx
+- [x] T007 [P] [US1] Create GoalCard component (title, days-remaining text via formatDaysRemaining, data-urgency attribute for future highlighting, checkbox placeholder for active / static checkmark for completed, delete button placeholder) in app/components/GoalCard.tsx
+- [x] T008 [US1] Create GoalBoard client component ("use client", calls useGoals, renders two-column CSS Grid layout with md:grid-cols-2, column headings "Current Goals" / "Completed Goals", maps activeGoals and completedGoals to GoalCard, renders EmptyState when columns are empty) in app/components/GoalBoard.tsx
+- [x] T009 [US1] Update page.tsx to render page header with "DoIt" title and GoalBoard component in app/page.tsx
 
 **Checkpoint**: At this point, User Story 1 should be fully functional — two columns visible, goal cards display title + days remaining, empty states show, pastel theme applied, layout responsive
 
@@ -71,8 +71,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T010 [US2] Create AddGoalModal component (native HTML dialog element with showModal/close via ref, Title text input with maxLength 200, End Date input type="date", inline validation messages for empty fields, onSubmit calls addGoal from useGoals, onCancel/Escape/backdrop-click closes without creating, aria-labelledby on dialog heading, body scroll lock via useEffect) in app/components/AddGoalModal.tsx
-- [ ] T011 [US2] Add "Add Goal" button to GoalBoard that opens AddGoalModal, wire addGoal callback, and add localStorage-unavailable banner (when storageAvailable is false) in app/components/GoalBoard.tsx
+- [x] T010 [US2] Create AddGoalModal component (native HTML dialog element with showModal/close via ref, Title text input with maxLength 200, End Date input type="date", inline validation messages for empty fields, onSubmit calls addGoal from useGoals, onCancel/Escape/backdrop-click closes without creating, aria-labelledby on dialog heading, body scroll lock via useEffect) in app/components/AddGoalModal.tsx
+- [x] T011 [US2] Add "Add Goal" button to GoalBoard that opens AddGoalModal, wire addGoal callback, and add localStorage-unavailable banner (when storageAvailable is false) in app/components/GoalBoard.tsx
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work — users can add goals and see them rendered in the two-column layout
 
@@ -86,8 +86,8 @@
 
 ### Implementation for User Story 3
 
-- [ ] T012 [US3] Wire checkbox onChange in GoalCard to call completeGoal(id) for active goals; render static checkmark (✓) for completed goals; hide days-remaining text for completed goals in app/components/GoalCard.tsx
-- [ ] T013 [US3] Pass completeGoal callback from GoalBoard to GoalCard for active goals in app/components/GoalBoard.tsx
+- [x] T012 [US3] Wire checkbox onChange in GoalCard to call completeGoal(id) for active goals; render static checkmark (✓) for completed goals; hide days-remaining text for completed goals in app/components/GoalCard.tsx
+- [x] T013 [US3] Pass completeGoal callback from GoalBoard to GoalCard for active goals in app/components/GoalBoard.tsx
 
 **Checkpoint**: At this point, User Stories 1, 2, AND 3 should all work independently — full add → view → complete loop
 
@@ -101,9 +101,9 @@
 
 ### Implementation for User Story 4
 
-- [ ] T014 [P] [US4] Create DeleteConfirm component (inline prompt with "Delete this goal permanently?" text, Confirm and Cancel buttons, pastel styling, keyboard accessible) in app/components/DeleteConfirm.tsx
-- [ ] T015 [US4] Add delete button to GoalCard, toggle DeleteConfirm visibility on click, wire Confirm to deleteGoal(id) and Cancel to dismiss in app/components/GoalCard.tsx
-- [ ] T016 [US4] Pass deleteGoal callback from GoalBoard to GoalCard for both active and completed goals in app/components/GoalBoard.tsx
+- [x] T014 [P] [US4] Create DeleteConfirm component (inline prompt with "Delete this goal permanently?" text, Confirm and Cancel buttons, pastel styling, keyboard accessible) in app/components/DeleteConfirm.tsx
+- [x] T015 [US4] Add delete button to GoalCard, toggle DeleteConfirm visibility on click, wire Confirm to deleteGoal(id) and Cancel to dismiss in app/components/GoalCard.tsx
+- [x] T016 [US4] Pass deleteGoal callback from GoalBoard to GoalCard for both active and completed goals in app/components/GoalBoard.tsx
 
 **Checkpoint**: At this point, User Stories 1–4 should all work — full add → view → complete → delete loop
 
@@ -117,8 +117,8 @@
 
 ### Implementation for User Story 5
 
-- [ ] T017 [US5] Add Tailwind data-urgency variant styles to GoalCard (data-[urgency=approaching]: warning-light bg + warning border, data-[urgency=due-today]: danger-light bg + danger border, data-[urgency=overdue]: deeper danger bg + danger border + bold text, data-[urgency=on-track]: default surface styling) in app/components/GoalCard.tsx
-- [ ] T018 [US5] Ensure GoalCard computes urgency from daysRemaining via getUrgency and sets the data-urgency attribute on the card element in app/components/GoalCard.tsx
+- [x] T017 [US5] Add Tailwind data-urgency variant styles to GoalCard (data-[urgency=approaching]: warning-light bg + warning border, data-[urgency=due-today]: danger-light bg + danger border, data-[urgency=overdue]: deeper danger bg + danger border + bold text, data-[urgency=on-track]: default surface styling) in app/components/GoalCard.tsx
+- [x] T018 [US5] Ensure GoalCard computes urgency from daysRemaining via getUrgency and sets the data-urgency attribute on the card element in app/components/GoalCard.tsx
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -128,10 +128,10 @@
 
 **Purpose**: Final quality pass across all user stories
 
-- [ ] T019 [P] Run npm run lint and fix any ESLint errors or warnings across all files
-- [ ] T020 [P] Verify responsive layout at 320 px, 768 px, 1024 px, and 2560 px viewports — fix any horizontal scroll or touch-target issues
-- [ ] T021 Run npm run build and verify production build succeeds with zero errors
-- [ ] T022 Walk through quickstart.md verification steps 1–8 manually and fix any issues found
+- [x] T019 [P] Run npm run lint and fix any ESLint errors or warnings across all files
+- [x] T020 [P] Verify responsive layout at 320 px, 768 px, 1024 px, and 2560 px viewports — fix any horizontal scroll or touch-target issues
+- [x] T021 Run npm run build and verify production build succeeds with zero errors
+- [x] T022 Walk through quickstart.md verification steps 1–8 manually and fix any issues found
 
 ---
 
